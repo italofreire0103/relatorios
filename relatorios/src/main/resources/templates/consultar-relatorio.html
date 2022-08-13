@@ -1,0 +1,111 @@
+<html>
+<head th:replace="~{base :: head}">
+</head>
+<body class="bg-light">
+	<div th:replace="~{base :: menu_navegacao}"></div>
+
+	<main class="container">
+		<div class="my-3 p-3 bg-body rounded shadow-sm">
+			<h6 class="border-bottom pb-2 mb-0">Infomações do Job</h6>
+
+			<form action="/atualizar-job" method="get">
+				<div "job : ${job}"> </div>
+
+				<div class="mb-3 p-3">
+					<div class="row">
+						<div class="mb-3 col-6">
+							<input type="text" class="form-control" th:value="${job.nome}"readonly="readonly">
+							<small>Nome</small>
+						</div>
+						<div class="mb-3 col-6">
+							<input type="text" class="form-control" th:value="${job.areaResponsavel}" readonly="readonly">
+							<small>Área Responsável</small>
+						</div>
+					</div>
+					<div class="row">
+						<div class="mb-3 col-6">
+							<input type="text" class="form-control" th:value="${job.tipo}" readonly="readonly">
+							<small>Tipo</small>
+						</div>
+						<div class="mb-3 col-6">
+							<input type="text" class="form-control" th:value="${job.horarioPrevisto}" readonly="readonly">
+							<small>Horário Previsto</small>
+						</div>
+					</div>
+					<div class="row">
+						<div class="mb-3 col-12">
+							<input type="text" class="form-control" th:value="${job.dependencia}" readonly="readonly">
+							<small>Dependência</small>
+						</div>
+					</div>
+				</div>
+
+			</form>
+		</div>
+		<div class="my-3 p-3 bg-body rounded shadow-sm">
+			<h6 class="border-bottom pb-2 mb-0">Resumo Mensal</h6>
+			<div class="d-flex text-muted pt-3">
+				<table class="table" id="myTable">
+					<thead>
+						<tr>
+							<th scope="col">Data de Referência</th>
+							<th scope="col">Tempo Médio</th>
+							<th scope="col">Maior Tempo</th>
+						</tr>
+					</thead>
+
+					<div th:each="r : ${job.resumosMensais}">
+						<tbody>
+							<tr>
+								<td th:text="${r.mes}"></td>
+								<td th:text="${r.tempoMedioExecucao}"></td>
+								<td th:text="${r.maiorTempo}"></td>
+							</tr>
+						</tbody>
+					</div>
+
+				</table>
+			</div>
+		</div>
+		<div class="my-3 p-3 bg-body rounded shadow-sm">
+			<h6 class="border-bottom pb-2 mb-0">Execuções</h6>
+			<div class="d-flex text-muted pt-3">
+				<table class="table" id="myTable">
+					<thead>
+						<tr>
+							<th scope="col">Data Diária</th>
+							<th scope="col">Data Execução</th>
+							<th scope="col">Inicio</th>
+							<th scope="col">Fim</th>
+							<th scope="col">Processamento</th>
+							<th scope="col">Status</th>
+						</tr>
+					</thead>
+
+					<div th:each="e : ${job.execucoes}">
+						<tbody>
+							<tr>
+								<td th:text="${e.dataDiaria}"></td>
+								<td th:text="${e.dataExecucao}"></td>
+								<td th:text="${e.horaInicio}"></td>
+								<td th:text="${e.horaFim}"></td>
+								<td th:text="${e.tempoDeProc}"></td>
+								<td>
+									<div th:if="${e.statusFinal == 'OK'}">	
+										<i id="icone-sucesso"class="far fa-check-circle"></i>
+									</div>
+									<div th:if="${e.statusFinal == 'Erro'}">	
+										<i id="icone-erro" class="fas fa-times"></i>
+									</div>
+									<div th:if="${e.statusFinal == 'R-OK'}">	
+										<i id="icone-r-ok" class="fas fa-exclamation-triangle"></i>
+									</div>	
+								</td>
+							</tr>
+						</tbody>
+					</div>
+				</table>
+			</div>
+	</main>
+</body>
+</html>

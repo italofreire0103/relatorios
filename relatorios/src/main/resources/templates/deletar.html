@@ -1,0 +1,60 @@
+<html>
+
+<head th:replace="~{base :: head}">
+</head>
+
+<body>
+	<div th:replace="~{base :: menu_navegacao}"></div>
+	
+		<main class="container p-3 bg-body">
+				<div>
+				<form class="align-items-center p-3 my-4 bg-purple rounded shadow-sm" action="/consultar-job"
+					method="get">
+					<h6 class="border-bottom pb-2 mb-0">Buscar Job</h6>
+					<div class="row">
+						<div class="mb-3 col-10">
+							<input name="Id" type="text" class="form-control" placeholder="Nome">
+						</div>
+						<div class="mb-3 col-2">
+							<button type="submit" class="btn btn-outline-primary">Buscar</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div th:each="job : ${job}">
+			<form class="align-items-center p-3 my-4 bg-purple rounded shadow-sm" action="/excluir-job">
+				<h6 class="border-bottom pb-2 mb-0">Job</h6>
+				<div class="row">	
+				<div class="mb-3 col-4">
+					<span class="input-group-text" id="inputGroupPrepend">@</span>
+					<input type="text" class="form-control" placeholder="ID" th:value="${job.id}" readonly="readonly">
+				</div>
+				<div class="mb-3 col-8">
+					<input type="text" class="form-control" placeholder="Nome" th:value="${job.nome}" readonly="readonly">
+				</div>
+				</div>
+				<div class="row">
+				<div class="mb-3 col-4">
+					<input type="text" class="form-control" placeholder="Área Responsável" th:value="${job.areaResponsavel}" readonly="readonly">
+				</div>
+				<div class="mb-3 col-4">
+					<input type="text" class="form-control" placeholder="Tipo" th:value="${job.tipo}" readonly="readonly">
+				</div>
+				<div class="mb-3 col-4">
+					<input type="text" class="form-control" placeholder="Horário Previsto" th:value="${job.horarioPrevisto}" readonly="readonly">
+				</div>
+				</div>
+				<div class="row"> 
+				<div class="mb-3 col-12">
+					<input type="text" class="form-control" placeholder="Dependência" th:value="${job.dependencia}" readonly="readonly">
+				</div>
+				</div>
+				<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+				<button type="submit" class="btn btn-outline-primary">Excluir</button>
+				</div>
+			</form>
+			</div>
+	</main>
+
+  </body>
+</html>

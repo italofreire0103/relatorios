@@ -1,0 +1,60 @@
+<html>
+
+<head th:replace="~{base :: head}"></head>
+
+<body class="bg-light">
+	<div th:replace="~{base :: menu_navegacao}"></div>
+
+	<section class="vh-100">
+		<div class="container py-5 h-100">
+			<div class="row d-flex justify-content-center align-items-center h-100">
+				<div class="col col-xl-10">
+					<div id="div1" class="card">
+						<div class="row g-0">
+							<div class="card-body p-4 p-lg-5 text-black">
+								<form th:action="@{/v1-cadastrar-usuario}" method="post">
+									<div class="d-flex align-items-center mb-3 pb-1">
+										<span class="h3 fw-bold mb-0">Cadastro de Usu·rio</span>
+									</div>
+									<div th:if="${param.sucess}"  class="alert alert-success" role="alert">
+											<a>Usu√°rio cadastrado com sucesso!</a>
+										</div>
+										<div th:if="${param.jaCadastrado}"  class="alert alert-warning" role="alert">
+											<a>Usu√°rio j· possui cadastro!</a>
+										</div>
+										
+									<div class="form-outline mb-4">
+										<input name="nome" type="text" class="form-control" required maxlength="40"
+											minlength="3" />
+										<label>Nome</label>
+									</div>
+									<div class="form-outline mb-4">
+										<input name="login" type="text" class="form-control" required maxlength="15"
+											minlength="5" />
+										<label>Usu√°rio</label>
+									</div>
+									<div class="form-outline mb-4">
+										<input name="senha" type="password" class="form-control" required maxlength="15" minlength="5" />
+										<label for="senha">Senha</label>
+									</div>
+									<div class="mb-3 form-check">
+										<input name="admin" type="checkbox" class="form-check-input">
+										<label class="form-check-label" for="exampleCheck1">Administrador</label>
+									</div>
+									<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+										<button type="submit" class="btn btn-primary">Salvar</button>
+										<button type="reset" class="btn btn-secondary">Limpar</button>
+									</div>
+
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</section>
+</body>
+
+</html>

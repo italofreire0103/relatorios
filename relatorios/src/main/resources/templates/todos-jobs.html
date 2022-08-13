@@ -1,0 +1,33 @@
+<html>
+
+<head th:replace="~{base :: head}"></head>
+
+<body class="bg-light">
+	<div th:replace="~{base :: menu_navegacao}"></div>
+	<main class="container">
+		<div class="my-3 p-3 bg-body rounded shadow-sm">
+			<h6 class="border-bottom pb-2 mb-0">Jobs Cadastrados</h6>
+			<div class="table-responsive">
+				<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+					<thead>
+						<tr>
+							<th scope="col">Nome</th>
+							<th scope="col">Detalhes</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="job : ${jobs}">
+							<td th:text="${job.nome}"></td>
+							<td>
+								<a th:href="@{/consultar-relatorio-job(idJob = ${job.id})}"
+								 type="submit" class="btn btn-info">Info</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</main>
+</body>
+
+</html>

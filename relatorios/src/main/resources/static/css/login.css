@@ -1,0 +1,17 @@
+.bg-image-vertical {
+	position: relative;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	background-position: right center;
+	background-size: auto 100%;
+}
+#div1{
+	border-radius: 1rem;
+}
+
+img{
+	border-radius: 1rem 0 0 1rem;
+}
+body{
+	background-color: #D3D3D3;
+}

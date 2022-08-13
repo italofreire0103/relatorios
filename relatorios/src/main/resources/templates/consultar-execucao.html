@@ -1,0 +1,67 @@
+<html>
+<head th:replace="~{base :: head}">
+</head>
+<body class="bg-light">
+	<div th:replace="~{base :: menu_navegacao}"></div>
+
+	<main class="container">
+		<div class="my-3 p-3 bg-body rounded shadow-sm">
+			<form id="form" action="/consultar-execucao" method="get">
+				<div class="row justify-content-start">
+					<div class="mb-3 col-12">
+						<input id="nome" name="nomeJob" type="text" class="form-control" placeholder="ID">
+						<small>ID do Job</small>
+					</div>
+					<div class="mb-3 col-4">
+						<input name="dataExec" type="date" class="form-control" placeholder="dataInicioExec" required>
+						<small>Data de Execução</small>
+					</div>
+					<div class="mb-3 col-4">
+						<input name="horaInicioExec" type="time" class="form-control" required>
+						<small>Hora Início</small>
+					</div>
+					<div class="mb-3 col-4">
+						<input name="horaFimExec" type="time" class="form-control" required>
+						<small>Hora Fim</small>
+					</div>
+					<div class="mb-3 col-2">
+						<button type="submit" class="btn btn-primary">Consultar</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="my-3 p-3 bg-body rounded shadow-sm">
+			<h6 class="border-bottom pb-2 mb-0">Execuções</h6>
+			<div class="d-flex text-muted pt-3">
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">Id</th>
+							<th scope="col">Data Diária</th>
+							<th scope="col">Data Execução</th>
+							<th scope="col">Início</th>
+							<th scope="col">Fim</th>
+							<th scope="col">Tempo de Proc</th>
+							<th scope="col">Status</th>
+						</tr>
+					</thead>
+
+					<div th:each="exec : ${execucoes}">
+						<tbody>
+								<td th:text="${exec.Job.Id}"></td>
+								<td th:text="${exec.dataDiaria}"></td>
+								<td th:text="${exec.dataExecucao}"></td>
+								<td th:text="${exec.horaInicio}"></td>
+								<td th:text="${exec.horaFim}"></td>
+								<td th:text="${exec.tempoDeProc}"></td>
+								<td th:text="${exec.statusFinal}"></td>
+							</tr>
+						</tbody>
+					</div>
+				</table>
+			</div>
+	</main>
+	<script src="js/validador.js"></script>
+</body>
+
+</html>

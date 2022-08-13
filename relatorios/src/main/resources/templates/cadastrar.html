@@ -1,0 +1,72 @@
+<html>
+
+<head th:replace="~{base :: head}"></head>
+
+<body class="bg-light">
+	<div th:replace="~{base :: menu_navegacao}"></div>
+	<main class="container p-3 bg-body">
+				<div>
+				<form class="align-items-center p-3 my-4 bg-purple rounded shadow-sm" action="/consultar-job"
+					method="get">
+					<h6 class="border-bottom pb-2 mb-0">Buscar Job para Alterar</h6>
+					<div class="row justify-content-start">
+						<div class="mb-3 col-10">
+							<input name="nome" type="text" class="form-control" placeholder="Nome">
+						</div>
+						<div class="mb-3 col-2">
+							<button type="submit" class="btn btn-primary">Consultar</button>
+						</div>
+
+					</div>
+				</form>
+			</div>
+			<div>
+			<form class="align-items-center p-3 my-4 bg-purple rounded shadow-sm">
+				<h6 class="border-bottom pb-2 mb-0">Criar/Alterar Job</h6>
+				<div class="row">	
+				<div class="mb-3 col-4">
+					<input type="text" class="form-control" placeholder="ID">
+				</div>
+				<div class="mb-3 col-8">
+					<input type="text" class="form-control" placeholder="Nome">
+				</div>
+				</div>
+				<div class="row">
+				<div class="mb-3 col-4">
+					<input type="text" class="form-control" placeholder="Ã�rea ResponsÃ¡vel">
+				</div>
+				<div class="col-4">
+					<select class="mb-3 form-select" aria-label="Default select example">
+						<option selected>Selecione o Tipo</option>
+						<option value="2">ANUAL</option>
+						<option value="2">SEMESTRAL</option>
+						<option value="3">MENSAL</option>
+						<option value="2">DIÃ�RIO</option>
+					</select>
+					</div>
+					<div class="col-4">
+					<select class="mb-3 form-select" aria-label="Default select example">
+						<option selected>Horario Previsto</option>
+						<option value="1">1Â° DIA</option>
+						<option value="2">2Â° DIA</option>
+						<option value="2">3Â° DIA</option>
+						<option value="2">5Â° DIA</option>
+						<option value="3">ÃšLTIMO DIA</option>
+						<option value="2">DIÃ�RIO</option>
+					</select>
+				</div>
+				</div>
+				<div class="row"> 
+				<div class="mb-3 col-12">
+					<input type="text" class="form-control" placeholder="Dependencia">
+				</div>
+				</div>
+				<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+				<button type="submit" class="btn btn-primary">Salvar</button>
+				<button type="reset" class="btn btn-secondary">Limpar</button>
+				</div>
+			</form>
+			</div>
+	</main>
+</body>
+</html>

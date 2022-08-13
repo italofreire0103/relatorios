@@ -1,0 +1,31 @@
+<html>
+<head th:replace="~{base :: head}"></head>
+<body class="bg-light">
+<div th:replace="~{base :: menu_navegacao}"></div>
+	<main class="container">
+		<div class="my-3 p-3 bg-body rounded shadow-sm">
+			<h6 class="border-bottom pb-2 mb-0">Processos Pendentes</h6>
+			<div class="table-responsive">
+				<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+					<thead>
+						<tr>
+							<th scope="col">Nome</th>
+							<th scope="col">Tipo</th>
+							<th scope="col">Horario Previsto</th>
+							<th scope="col">Área Responsável</th>
+						</tr>
+					</thead>
+						<tbody>
+							<tr th:each="job : ${jobs}">
+								<td th:text="${job.nome}"></td>
+								<td th:text="${job.tipo}"></td>
+								<td th:text="${job.horarioPrevisto}"></td>
+								<td th:text="${job.areaResponsavel}"></td>
+							</tr>
+						</tbody>
+				</table>
+			</div>
+		</div>
+	</main>
+	</body>
+</html>

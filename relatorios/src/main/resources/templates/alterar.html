@@ -1,0 +1,79 @@
+<html>
+
+<head th:replace="~{base :: head}"></head>
+
+<body class="bg-light">
+	<div th:replace="~{base :: menu_navegacao}"></div>
+	<main class="container">
+		<div>
+			<div>
+				<form id="form" class="align-items-center p-3 my-4 bg-purple rounded shadow-sm" method="get">
+					<h6 class="border-bottom pb-2 mb-0">Buscar Job para Alterar</h6>
+					<div class="row justify-content-start">
+						<div class="mb-3 col-10">
+							<input name="nome" type="text" class="form-control" placeholder="NOME">
+						</div>
+						<div class="mb-3 col-2">
+							<button type="submit" class="btn btn-primary">Consultar</button>
+						</div>
+
+					</div>
+				</form>
+			</div>
+			<form class="align-items-center p-3 my-4 bg-purple rounded shadow-sm" action="/atualizar-job" method="get">
+				<div "job : ${job}">
+					<div class="mb-3 p-3 ">
+						<h6 class="border-bottom pb-2 mb-0">AlteraÃ§Ã£o</h6>
+
+						<div class="mb-3">
+							<input name="id" type="text" class="form-control" placeholder="ID" th:value="${job.id}" readonly="readonly">
+						</div>
+						<div class="mb-3">
+							<input name="nome" type="text" class="form-control" placeholder="Nome"
+								th:value="${job.nome}">
+						</div>
+						<div class="mb-3">
+							<input name="dependencia" type="text" class="form-control" placeholder="Dependencia"
+								th:value="${job.dependencia}">
+						</div>
+						<div class="mb-3">
+							<input name="areaResponsavel" type="text" class="form-control"
+								placeholder="Ã�rea ResponsÃ¡vel" th:value="${job.areaResponsavel}">
+						</div>
+						<div>
+							<select name="tipo" class="mb-1 form-select col-12" aria-label="Default select example"
+								th:value="${job.id}">
+								<option selected>Selecione o Tipo</option>
+								<option value="ANUAL">ANUAL</option>
+								<option value="SEMESTRAL">SEMESTRAL</option>
+								<option value="MENSAL">MENSAL</option>
+								<option value="DIÃ�RIO">DIÃ�RIO</option>
+							</select>
+						</div>
+						<div>
+						</div>
+							<select name="horarioPrevisto" class="mb-1 form-select col-12" aria-label="Default select example">
+								<option selected>Selecione o HorÃ¡rio Previsto</option>
+								<option value="1Â° DIA">1Â° DIA</option>
+								<option value="2Â° DIA">2Â° DIA</option>
+								<option value="3Â° DIA">3Â° DIA</option>
+								<option value="5Â° DIA">5Â° DIA</option>
+								<option value="ÃšLTIMO DIA">ÃšLTIMO DIA</option>
+								<option value="DIÃ�RIO">DIÃ�RIO</option>
+							</select>
+						</div>
+						<div class="mb-3">
+							<button type="submit" class="btn btn-primary mb-3">Salvar</button>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</main>
+	
+	
+</body>
+
+<script src="/src/main/resources/static/js/formulario.js"></script>
+
+</html>
